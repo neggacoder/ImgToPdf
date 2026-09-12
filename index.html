@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111827" />
+    <title>Фото в PDF</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="hero">
+        <a class="brand" href="./" aria-label="Фото в PDF — на главную">
+          <span class="brand-mark" aria-hidden="true">↗</span>
+          <span>Фото в PDF</span>
+        </a>
+        <p class="eyebrow">Быстро · бесплатно · приватно</p>
+        <h1>Соберите изображения<br />в один аккуратный PDF</h1>
+        <p class="hero-copy">Файлы обрабатываются прямо в вашем браузере и никуда не загружаются.</p>
+      </header>
+
+      <section class="workspace" aria-labelledby="workspace-title">
+        <div class="section-heading">
+          <div>
+            <p class="step">Шаг 1</p>
+            <h2 id="workspace-title">Добавьте изображения</h2>
+          </div>
+          <button class="text-button" id="clear-button" type="button" hidden>Очистить всё</button>
+        </div>
+
+        <label class="drop-zone" id="drop-zone" for="file-input">
+          <input id="file-input" type="file" accept="image/jpeg,image/png,image/webp" multiple />
+          <span class="upload-icon" aria-hidden="true">↑</span>
+          <span class="drop-title">Перетащите файлы сюда</span>
+          <span class="drop-caption">или <strong>выберите на устройстве</strong></span>
+          <span class="drop-hint">JPG, PNG или WEBP · до 25 МБ каждый</span>
+        </label>
+
+        <div class="file-area" id="file-area" hidden>
+          <div class="file-toolbar">
+            <p id="file-count" aria-live="polite"></p>
+            <p class="sort-hint">Перетаскивайте карточки, чтобы изменить порядок страниц</p>
+          </div>
+          <ul class="file-list" id="file-list" aria-label="Добавленные изображения"></ul>
+          <button class="add-more" id="add-more" type="button">+ Добавить ещё</button>
+        </div>
+      </section>
+
+      <section class="settings" id="settings" hidden aria-labelledby="settings-title">
+        <div class="section-heading compact">
+          <div>
+            <p class="step">Шаг 2</p>
+            <h2 id="settings-title">Настройте PDF</h2>
+          </div>
+        </div>
+        <div class="settings-grid">
+          <label class="setting-field">
+            <span>Размер страницы</span>
+            <select id="page-format">
+              <option value="a4">A4</option>
+              <option value="letter">Letter</option>
+              <option value="original">По размеру изображения</option>
+            </select>
+          </label>
+          <label class="setting-field">
+            <span>Ориентация</span>
+            <select id="orientation">
+              <option value="auto">Автоматически</option>
+              <option value="portrait">Книжная</option>
+              <option value="landscape">Альбомная</option>
+            </select>
+          </label>
+          <label class="setting-field">
+            <span>Поля</span>
+            <select id="margin">
+              <option value="0">Без полей</option>
+              <option value="10" selected>Небольшие · 10 мм</option>
+              <option value="20">Обычные · 20 мм</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="export-card" id="export-card" hidden aria-labelledby="export-title">
+        <div>
+          <p class="step">Шаг 3</p>
+          <h2 id="export-title">Готово к созданию</h2>
+          <p id="export-summary">Каждое изображение станет отдельной страницей.</p>
+        </div>
+        <button class="primary-button" id="create-button" type="button">
+          <span aria-hidden="true">↓</span> Скачать PDF
+        </button>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
