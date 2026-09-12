@@ -12,10 +12,10 @@ python3 -m http.server 8000
 
 ## Публикация на GitHub Pages
 
-1. Создайте репозиторий на GitHub и загрузите в него файлы проекта.
-2. В репозитории откройте **Settings → Pages**.
-3. В разделе **Build and deployment** выберите **Deploy from a branch**.
-4. Укажите ветку `main` (или `master`) и папку `/(root)`, затем сохраните.
-5. GitHub покажет адрес опубликованного сайта через несколько минут.
+1. В репозитории откройте **Settings → Pages**.
+2. В разделе **Build and deployment** выберите **GitHub Actions** в качестве источника.
+3. Сделайте push в ветку `main`. Workflow автоматически опубликует сайт; адрес появится на странице Actions и в Settings → Pages.
+
+Также публикацию можно запустить вручную: **Actions → Deploy to GitHub Pages → Run workflow**.
 
 Для создания PDF на опубликованной странице нужен доступ к CDN `jsdelivr.net`, с которого загружается библиотека jsPDF.
